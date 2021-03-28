@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+
+*,
+body,
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+}
+
+div.navbar {
+  background-color: #fff;
+  border-bottom: 4px solid #ff7839;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 10px 50px 10px 50px;
+}
+
+.card-body {
+  padding: 20px 20px;
+}
+
+/*INPUT BEGIN*/
+.py-10 {
+  padding: 10px 0;
+}
+
+input {
+  border: 0;
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  outline: none;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.filter i {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+
+input:disabled {
+  background: none;
+}
+
+.labelHeader {
+  font-size: 1.3rem;
+}
+/*INPUT END*/
+
+/*BUTTONS BEGIN*/
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  transform: scale(0.98);
+}
+
+.btn-group button {
+  border: 1px solid #ccc;
+}
+.btn-group button:not(:last-child) {
+  border-right: none;
+}
+
+.btn-filter {
+  background: #fff;
+  color: #000;
+}
+.btn-primary {
+  background-color: #ee7033;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+}
+/*BUTTONS END*/
+
+/*TRANSFER FORM BEGIN*/
+.transfer-form {
+  grid-column: 1 / span 2;
+  background-color: #fff;
+}
+
+.transfer-form .card-header {
+  height: 40px;
+  background-color: #0c8397;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 0;
+  color: #fff;
+}
+
+/*TRANSFER FORM END*/
+
+/*TRANSACTIONS BEGIN*/
+
+.transactions {
+  grid-column: 3 / span 5;
+  background-color: #fff;
+}
+.merchantLogo {
+  width: 32px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.transactions .card-header {
+  height: 50px;
+  background-color: #0c8397;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 20px;
+  margin: 0;
+}
+
+.transactions .card-body .filter-sort {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.filter {
+  grid-column: 1 / span 3;
+}
+.sort {
+  display: grid;
+  grid-column: 4 / span 5;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.labelSort {
+  grid-column: 1;
+}
+.btn-group {
+  grid-column: 2 / span 4;
+  display: flex;
+}
+
+.btn-group .btn {
+  flex: 1;
+}
+
+
+
+
+.transactionList {
+  margin: 10px;
+}
+.transactionItems:first-child {
+  border-top: 1px solid #ccc;
+}
+.transactionItems {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+.my-grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.my-grid-container > .col-3 {
+  grid-column: 3 / span 3;
+}
+
+.my-grid-container > div {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-grid-container > .my-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.my-grid-container > .my-grid-container > div.alignLeft {
+  justify-content: start;
+  text-align: left;
+}
+.my-grid-container > .my-grid-container > div.alignLeft.subText {
+  font-size: 0.75rem;
+}
+
+.my-grid-container > div.alignRight {
+  justify-content: flex-end;
+  text-align: right;
+}
+/*TRANSACTIONS END*/
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+  .transactions {
+    grid-column: 1 / span 7;
+  }
+  .transfer-form {
+    grid-column: 1 / span 7;
+  }
+}

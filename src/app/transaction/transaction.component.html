@@ -1,0 +1,108 @@
+<!-- Navbar -->
+<div class="navbar">
+  <div class="grid">
+    <img src="/assets/logo.jpg" alt="" />
+  </div>
+</div>
+
+<div class="grid">
+  <div class="transfer-form">
+    <div class="card-header">
+      <div><i class="bi bi-arrow-repeat labelHeader"></i></div>
+      <div style="margin:0 auto;"><label class="labelHeader">Make a Transfer</label></div>
+    </div>
+
+
+    <div class="card-body">
+      <div class="py-10">
+        <label for="">FROM ACCOUNT</label>
+        <input [(ngModel)]="fromAccount" disabled />
+      </div>
+      <div class="py-10">
+        <label for="">TO ACCOUNT</label>
+        <input [(ngModel)]="toAccount" />
+      </div>
+      <div class="py-10">
+        <label for="">AMOUNT</label>
+        <input [(ngModel)]="amount" type="number" required/>
+      </div>
+      <div class="py-10">
+        <button
+          type="button"
+          (click)="submitData(toAccount, amount)"
+          class="btn btn-primary"
+          style="width: 75%; height: 24px"
+        >
+          SUBMIT
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="transactions">
+    <div class="card-header">
+      <div><i class="bi bi-briefcase-fill labelHeader"></i></div>
+      <div style="margin:0 auto;"><label class="labelHeader">Recent Transactions</label></div>
+    </div>
+
+    <div class="card-body">
+      <div class="filter-sort">
+        <div class="filter">
+
+          <input
+            class="py-10"
+            [(ngModel)]="myFilter"
+            (keyup)="FilterFn()"
+            placeholder="Search by typing..."
+          />
+          <i class="bi bi-x icon" (click)="clearFilter()"></i>
+        </div>
+        <div class="sort">
+          <div class="labelSort py-10">
+            <label>Sort By</label>
+          </div>
+
+          <div class="btn-group py-10">
+
+            <button type="button" (click)="sortResult('date')" class="btn btn-filter">
+              <i *ngIf="arrowUpDate" class="bi bi-caret-up-fill"></i>
+              <i *ngIf="arrowDownDate" class="bi bi-caret-down-fill"></i>
+              DATE
+            </button>
+
+            <button type="button" (click)="sortResult('beneficiary')" class="btn btn-filter">
+              <i *ngIf="arrowUpBeneficiary == true" class="bi bi-caret-up-fill"></i>
+              <i *ngIf="arrowDownBeneficiary == true" class="bi bi-caret-down-fill"></i>
+              BENEFICIARY
+            </button>
+
+            <button type="button" (click)="sortResult('amount')" class="btn btn-filter">
+              <i *ngIf="arrowUpAmount" class="bi bi-caret-up-fill"></i>
+              <i *ngIf="arrowDownAmount" class="bi bi-caret-down-fill"></i>
+              AMOUNT
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="transactionList">
+      <div *ngFor="let dataItem of dataList" class="my-grid-container transactionItems">
+        <div [style]="getBorderLeftColor(dataItem.categoryCode)">
+          {{ getDate(dataItem.dates.valueDate) }}
+        </div>
+        <div>
+          <img class="merchantLogo" [src]="getLogo(dataItem.merchant.name)"/>
+        </div>
+        <div class="my-grid-container col-3">
+          <div class="alignLeft">{{ dataItem.merchant.name }}</div>
+          <div class="alignLeft subText">{{ dataItem.transaction.type }}</div>
+        </div>
+        <div class="alignRight">
+          -${{ dataItem.transaction.amountCurrency.amount }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
