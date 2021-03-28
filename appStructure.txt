@@ -1,0 +1,9 @@
+● src
++---● app
+|   +--● transaction
+|   |  |--transaction.component.ts|.html|.css|.spec.ts
+|   |
+|   |--app.module.ts
+|   |--app-routing.module.ts (route configs.)
+|
+|--index.html
